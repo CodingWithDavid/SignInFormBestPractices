@@ -1,0 +1,22 @@
+﻿@page "/"
+
+@inject NavigationManager navMgr
+@inject SignInModel model
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code{
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!model.LoggedIn)
+        {
+            navMgr.NavigateTo("signin");
+        }
+        await Task.CompletedTask;
+    }
+}
